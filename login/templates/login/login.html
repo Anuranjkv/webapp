@@ -16,8 +16,17 @@
             align-items: center;
             margin: 0;
         }
+        .login-container h2 {
+    text-align: center;
+    color: #fff; /* Changed from #333 to #fff */
+    margin-bottom: 20px;
+    
+}
+.st{
+    text-align: left;
+}
         .login-container {
-            background-color: rgba(225, 225, 225, 0.297);
+            background-color: rgba(2, 2, 2, 0.607);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -61,6 +70,7 @@
             background-color: #0056b3;
         }
         .footer-links {
+            
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
@@ -72,11 +82,12 @@
         #username{
             color: #000;
         }
+        
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h2>Student Login</h2>
+        <div class="st"><h2>Student Login</h2></div>
         <form action="/login" method="POST">
             <div class="form-group">
                 <label for="username">Username</label>
@@ -89,7 +100,7 @@
             <button type="submit" class="login-btn">Login</button>
         </form>
         <div class="footer-links">
-            <a href="#">Forgot Password?</a> | <a href="#">Register</a>
+            <a href="register/">Don't have an account? Register here.</a> | <a href="#Forgot Password?">Forgot Password?</a> | <a href="register/">Register</a>
         </div>
     </div>
 </body>

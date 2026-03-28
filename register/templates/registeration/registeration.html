@@ -1,0 +1,96 @@
+<html>
+    <head><title>registeration</title>
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            if (name.trim() === "") {
+                alert("Name is required.");
+                return false;
+            }
+            if (email.trim() === "") {
+                alert("Email is required.");
+                return false;
+            }
+            if (password.trim() === "") {
+                alert("Password is required.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.181);
+            border-radius: 5%;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('/static/images/img28.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="container">
+            <h2>Student Registeration</h2>
+            <form action="/register" method="POST" onsubmit="return validateForm()">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Register</button>
+                <button type="reset">Reset</button><br>
+
+                <div class="footer-links">
+                    <a href="/login/">Already have an account? Login here.</a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
