@@ -1,107 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Login</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-image: url('/static/images/img24.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-        }
-        .login-container h2 {
-    text-align: center;
-    color: #fff; /* Changed from #333 to #fff */
-    margin-bottom: 20px;
-    
-}
-.st{
-    text-align: left;
-}
-        .login-container {
-            background-color: rgba(2, 2, 2, 0.607);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 350px;
-            backdrop-filter: blur(1px);
-            color: #000;
-        }
-        .login-container h2 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #666;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #1b1111;
-            border-radius: 5px;
-            box-sizing: border-box;
-            
-        }
-        .login-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .login-btn:hover {
-            background-color: #0056b3;
-        }
-        .footer-links {
-            
-            text-align: center;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-        .footer-links a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        #username{
-            color: #000;
-        }
-        
-    </style>
 </head>
 <body>
-    <div class="login-container">
-        <div class="st"><h2>Student Login</h2></div>
-        <form action="/login" method="POST">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-        </form>
-        <div class="footer-links">
-            <a href="register/">Don't have an account? Register here.</a> | <a href="#Forgot Password?">Forgot Password?</a> | <a href="register/">Register</a>
+<style>
+    body{
+        background-image: url('/static/images/img24.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: flex;
+    }
+    .login-container {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        backdrop-filter: blur(10px);
+        background-color: rgba(255, 255, 255, 0.15) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .login-container h2 {
+        color: #fff !important;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+    }
+    .form-group label {
+        color: #eee;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    .form-group input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: none;
+        background: rgba(255, 255, 255, 0.9);
+        margin-bottom: 10px;
+        outline: none;
+    }
+    .login-btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-top: 10px;
+    }
+    .login-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(16, 250, 8, 0.732);
+    }
+    .footer-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .footer-links button {
+         width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        margin-top: 10px;
+        
+    }
+    .register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(84, 187, 243, 0.878);
+    }
+    .login-container h2 {
+        text-align: center;
+        color: #e5ebe5;
+        margin-bottom: 20px;
+    }
+    .form-group{
+        padding: 6px;
+
+    }
+    .login-container button{
+        padding: 6px;
+        border-spacing: 6px;
+    }
+    a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+<div class="login-container">
+    <div class="st"><h2>Student Login</h2></div>
+
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: #ff4d4d; text-align: center; font-size: 14px;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
         </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="footer-links">
+        <button class="register"><a href="{% url 'register' %}">Register As new.</a></button>
     </div>
+</div>    
+f
 </body>
 </html>

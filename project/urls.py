@@ -6,7 +6,7 @@ from register import views as register
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', login.student_login, name='student_login'),
-    path('', login.student_login, name='student_login'),
-    path('register/', register.register, name='register_user'),
+    path('login/', login.student_login, name='login'),
+    path('', login.student_login, name='login'),
+    path('register/', register.register, name='register'),
 ]
